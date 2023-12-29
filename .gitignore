@@ -1,10 +1,5 @@
-/.eslintrc
-/.prettierrc
-/.vscode
 /aftman.toml
-/default.project.json
 /include
 /node_modules
 /out
 /package-lock.json
-/tsconfig.json

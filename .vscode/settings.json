@@ -1,0 +1,29 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"files.eol": "\n",
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features",
+		"editor.formatOnSave": true
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features",
+		"editor.formatOnSave": true
+	},
+	"eslint.run": "onType",
+	"eslint.format.enable": true,
+	"cSpell.words": [
+		"HICOM",
+		"imagelabel",
+		"rbxassetid",
+		"roact",
+		"screengui",
+		"scrollingframe",
+		"textbutton",
+		"textlabel",
+		"uicorner",
+		"uigridlayout",
+		"uilistlayout",
+		"uiscale",
+		"uistroke"
+	]
+}
