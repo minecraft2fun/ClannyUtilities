@@ -28,7 +28,7 @@ export class PlayerTag extends Roact.Component<props> {
                 ActionButtons["addXp"].SetVisibility(true)
                 ActionButtons["removeXp"].SetVisibility(true)
                 ActionButtons["confirm"].SetVisibility(false)
-                ActionButtons["deny"].SetVisibility(false)
+                ActionButtons["cancel"].SetVisibility(false)
             }}
             onLoad={(button) => {
                 ActionButtons["confirm"] = button
@@ -44,7 +44,7 @@ export class PlayerTag extends Roact.Component<props> {
                 ActionButtons["addXp"].SetVisibility(true)
                 ActionButtons["removeXp"].SetVisibility(true)
                 ActionButtons["confirm"].SetVisibility(false)
-                ActionButtons["deny"].SetVisibility(false)
+                ActionButtons["cancel"].SetVisibility(false)
             }}
             onLoad={(button) => {
                 ActionButtons["cancel"] = button
@@ -59,7 +59,7 @@ export class PlayerTag extends Roact.Component<props> {
             ActionButtons["addXp"].SetVisibility(false)
             ActionButtons["removeXp"].SetVisibility(false)
             ActionButtons["confirm"].SetVisibility(true)
-            ActionButtons["deny"].SetVisibility(true)
+            ActionButtons["cancel"].SetVisibility(true)
             ExpLabelTextUpdate("Are you sure?")
         }
         const SetXpButton = <Button

@@ -2,6 +2,7 @@ import Roact from "@rbxts/roact";
 import { Players, StarterGui } from "@rbxts/services";
 import * as RoactComponents from "./RoactComponents"
 StarterGui.SetCoreGuiEnabled(Enum.CoreGuiType.All, false)
+
 /*
 const element = (
     <screengui>
@@ -39,14 +40,19 @@ PlayerElements.push(<RoactComponents.PlayerTag rank="Commander" exp={99999999999
 
 
 const PlayersView = <screengui>
-    <frame BackgroundColor3={Color3.fromRGB(38, 38, 43)} Size={UDim2.fromScale(.8, .8)} Position={UDim2.fromScale(.5, .5)} AnchorPoint={new Vector2(.5, .5)}>
-        <frame Key={"NavBar"} /*ZIndex={2}*/ BackgroundColor3={Color3.fromRGB(44, 46, 51)} Size={UDim2.fromScale(1, .15)} Position={UDim2.fromScale(0, 0)} BorderSizePixel={0}>
+    <frame BackgroundColor3={Color3.fromRGB(38, 38, 43)} ZIndex={-1} Size={UDim2.fromScale(.7, .7)} Position={UDim2.fromScale(.5, .5)} AnchorPoint={new Vector2(.5, .5)}>
+        <frame Key={"TopBar"} ZIndex={1} BackgroundColor3={Color3.fromRGB(44, 46, 51)} Size={UDim2.fromScale(1, .15)} Position={UDim2.fromScale(0, 0)} BorderSizePixel={0}>
             <uicorner CornerRadius={new UDim(.3, 0)} />
-            <imagelabel Key={"ClannyLogo"} Image={"rbxassetid://15688871384"} Size={UDim2.fromScale(.05, .9)} Position={UDim2.fromScale(.05, .1)} ZIndex={2} BackgroundTransparency={1} />
-            <frame Key={"Background"} BackgroundColor3={Color3.fromRGB(44, 46, 51)} Size={UDim2.fromScale(1, .5)} Position={UDim2.fromScale(0, .5)} BorderSizePixel={0} />
+            <uilistlayout FillDirection={"Horizontal"} HorizontalAlignment={"Left"} VerticalAlignment={"Center"} HorizontalFlex={"SpaceBetween"} SortOrder={"LayoutOrder"} Padding={new UDim(.01, 0)} />
+            <imagelabel Key={"ClannyLogo"} LayoutOrder={1} Image={"rbxassetid://15688871384"} Size={UDim2.fromScale(.062, .8)} Position={UDim2.fromScale(.02, .5)} ZIndex={2} BackgroundTransparency={1} AnchorPoint={new Vector2(0, .5)} />
+            <textlabel Text={"Clanny Systems"} LayoutOrder={2} TextColor3={Color3.fromRGB(255, 255, 255)} TextScaled={true} Size={UDim2.fromScale(.3, .7)} Position={UDim2.fromScale(.2, .5)} AnchorPoint={new Vector2(0, .5)} BackgroundTransparency={0} />
+            <frame Key={"Navigation"} Size={UDim2.fromScale(.3, .5)} LayoutOrder={3}>
+                <uilistlayout FillDirection={"Horizontal"} SortOrder={"LayoutOrder"} Padding={new UDim(.05, 0)} />
+            </frame>
         </frame>
+        <frame Key={"TopBarBacking"} ZIndex={0} BackgroundColor3={Color3.fromRGB(44, 46, 51)} Size={UDim2.fromScale(1, .1)} Position={UDim2.fromScale(0, .05)} BorderSizePixel={0} />
         <uicorner CornerRadius={new UDim(.04, 0)} />
-        <scrollingframe Key={"PlayerFrame"} Size={UDim2.fromScale(1, .8)} Position={UDim2.fromScale(0, .2)} ScrollBarThickness={0} AutomaticCanvasSize={"Y"} CanvasSize={UDim2.fromScale(1, 1)} BackgroundTransparency={1}>
+        <scrollingframe Key={"PlayerFrame"} Size={UDim2.fromScale(1, .8)} Position={UDim2.fromScale(0, .2)} ScrollBarThickness={0} AutomaticCanvasSize={"Y"} CanvasSize={UDim2.fromScale(1, 0)} BackgroundTransparency={1}>
             <uigridlayout CellPadding={UDim2.fromScale(0, .025)} CellSize={UDim2.fromScale(.97, .2)} FillDirectionMaxCells={1} HorizontalAlignment={Enum.HorizontalAlignment.Center} />
             {...PlayerElements}
         </scrollingframe>
