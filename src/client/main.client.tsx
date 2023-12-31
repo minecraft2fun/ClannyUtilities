@@ -49,6 +49,11 @@ const PlayersView = <screengui>
             <frame Key={"Navigation"} Size={UDim2.fromScale(.3, .5)} LayoutOrder={3}>
                 <uilistlayout FillDirection={"Horizontal"} SortOrder={"LayoutOrder"} Padding={new UDim(.05, 0)} />
             </frame>
+            <frame Key={"PlayerSearch"} Size={UDim2.fromScale(.3, .5)} LayoutOrder={4}>
+            </frame>
+            <frame Key={"ExpInput"} Size={UDim2.fromScale(.1, .5)} LayoutOrder={5}>
+            </frame>
+            <imagebutton />
         </frame>
         <frame Key={"TopBarBacking"} ZIndex={0} BackgroundColor3={Color3.fromRGB(44, 46, 51)} Size={UDim2.fromScale(1, .1)} Position={UDim2.fromScale(0, .05)} BorderSizePixel={0} />
         <uicorner CornerRadius={new UDim(.04, 0)} />

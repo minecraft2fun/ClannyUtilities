@@ -29,6 +29,7 @@ export class PlayerTag extends Roact.Component<props> {
                 ActionButtons["removeXp"].SetVisibility(true)
                 ActionButtons["confirm"].SetVisibility(false)
                 ActionButtons["cancel"].SetVisibility(false)
+                ExpLabelTextUpdate(`EXP: ${this.props.exp}`)
             }}
             onLoad={(button) => {
                 ActionButtons["confirm"] = button
@@ -45,6 +46,7 @@ export class PlayerTag extends Roact.Component<props> {
                 ActionButtons["removeXp"].SetVisibility(true)
                 ActionButtons["confirm"].SetVisibility(false)
                 ActionButtons["cancel"].SetVisibility(false)
+                ExpLabelTextUpdate(`EXP: ${this.props.exp}`)
             }}
             onLoad={(button) => {
                 ActionButtons["cancel"] = button
