@@ -1,18 +1,11 @@
-import Roact, { Element, createBinding, createRef } from "@rbxts/roact";
+import Roact, { createBinding } from "@rbxts/roact";
 import { BlacklistTag } from "./BlacklistTag";
 import { PermTag } from "./PermTag";
 import { Players } from "@rbxts/services";
 import { Button } from "./Button";
+import { playerTabData } from "./GeneratePlayerTabs";
 
-interface props {
-    rank: string,
-    player?: Player
-    exp: number,
-    blacklisted: Boolean
-    permLevel: string
-}
-
-export class PlayerTag extends Roact.Component<props> {
+export class PlayerTag extends Roact.Component<playerTabData> {
     public render(): Roact.Element | undefined {
         const dName = this.props.player && this.props.player.DisplayName || "OnlyTwentyTwoCharacters"
         const name = this.props.player && this.props.player.Name || "OnlyTwentyTwoCharacters"
@@ -95,7 +88,7 @@ export class PlayerTag extends Roact.Component<props> {
             onLoad={(button) => {
                 ActionButtons["removeXp"] = button
             }}
-            size={UDim2.fromScale(.25, 1)}
+            size={UDim2.fromScale(.3, 1)}
         />;
         return <frame BackgroundColor3={Color3.fromRGB(44, 46, 51)
         }>

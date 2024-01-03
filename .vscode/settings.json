@@ -13,6 +13,7 @@
 	"eslint.format.enable": true,
 	"cSpell.words": [
 		"HICOM",
+		"imagebutton",
 		"imagelabel",
 		"rbxassetid",
 		"roact",
@@ -24,6 +25,7 @@
 		"uigridlayout",
 		"uilistlayout",
 		"uiscale",
-		"uistroke"
+		"uistroke",
+		"uitextsizeconstraint"
 	]
 }

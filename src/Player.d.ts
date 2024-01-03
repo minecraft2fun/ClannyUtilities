@@ -1,3 +1,3 @@
-interface Player extends Instance{
-    PlayerGui:PlayerGui
+interface Player extends Instance {
+    PlayerGui: PlayerGui
 }
