@@ -13,6 +13,7 @@ interface props {
     position?: UDim2
     size?: UDim2
     visible?: boolean
+    layoutOrder?: number
     //onClick: (SetVisibility: (value: Boolean) => void) => void
     onClick: (button: Button) => void,
     onLoad?: (button: Button) => void
@@ -30,23 +31,23 @@ export class Button extends Roact.Component<props, state> {
         if (this.props.onLoad) { this.props.onLoad(this) }
         return this.state.visible && <textbutton Text={this.props.text} TextScaled={true} Font={Enum.Font.SourceSans} Size={this.props.size || UDim2.fromScale(.8, 1)}
             Position={this.props.position || UDim2.fromScale(.2, 0)} TextColor3={Color3.fromRGB(255, 255, 255)} BackgroundColor3={this.props.color}
-            AnchorPoint={new Vector2(.5, .5)}
+            AnchorPoint={new Vector2(.5, .5)} LayoutOrder={this.props.layoutOrder}
             Event={{
                 MouseButton1Up: (button) => {
                     this.props.onClick(this)
                     const scale = button!.FindFirstChild("Scale")
                     if (!scale || !scale.IsA("UIScale")) return
-                    TweenService.Create(scale, new TweenInfo(.5), { Scale: .90 }).Play();
+                    TweenService.Create(scale, new TweenInfo(.2), { Scale: 1 }).Play();
                 },
                 MouseButton1Down: (button) => {
                     const scale = button!.FindFirstChild("Scale")
                     if (!scale || !scale.IsA("UIScale")) return
-                    TweenService.Create(scale, new TweenInfo(.5), { Scale: .90 }).Play();
+                    TweenService.Create(scale, new TweenInfo(.2), { Scale: .85 }).Play();
                 },
                 MouseLeave: (button) => {
                     const scale = button!.FindFirstChild("Scale")
                     if (!scale || !scale.IsA("UIScale")) return
-                    TweenService.Create(scale, new TweenInfo(.5), { Scale: 1 }).Play();
+                    TweenService.Create(scale, new TweenInfo(.2), { Scale: 1 }).Play();
                 }
             }}>
             <uicorner CornerRadius={new UDim(.2, 0)} />

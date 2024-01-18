@@ -3,9 +3,9 @@ import { BlacklistTag } from "./BlacklistTag";
 import { PermTag } from "./PermTag";
 import { Players } from "@rbxts/services";
 import { Button } from "./Button";
-import { playerTabData } from "./GeneratePlayerTabs";
+import { PlayerScenePlayerData } from "../Scenes/PlayerScene";
 
-export class PlayerTag extends Roact.Component<playerTabData> {
+export class PlayerTag extends Roact.Component<PlayerScenePlayerData> {
     public render(): Roact.Element | undefined {
         const dName = this.props.player && this.props.player.DisplayName || "OnlyTwentyTwoCharacters"
         const name = this.props.player && this.props.player.Name || "OnlyTwentyTwoCharacters"
@@ -66,7 +66,7 @@ export class PlayerTag extends Roact.Component<playerTabData> {
             onLoad={(button) => {
                 ActionButtons["setXp"] = button
             }}
-            size={UDim2.fromScale(.2, 1)}
+            size={UDim2.fromScale(.25, 1)}
         />;
         const AddXpButton = <Button
             text={"Add XP"}
@@ -77,7 +77,7 @@ export class PlayerTag extends Roact.Component<playerTabData> {
             onLoad={(button) => {
                 ActionButtons["addXp"] = button
             }}
-            size={UDim2.fromScale(.2, 1)}
+            size={UDim2.fromScale(.25, 1)}
         />;
         const RemoveXpButton = <Button
             text={"Remove XP"}
@@ -88,12 +88,12 @@ export class PlayerTag extends Roact.Component<playerTabData> {
             onLoad={(button) => {
                 ActionButtons["removeXp"] = button
             }}
-            size={UDim2.fromScale(.3, 1)}
+            size={UDim2.fromScale(.35, 1)}
         />;
-        return <frame BackgroundColor3={Color3.fromRGB(44, 46, 51)
+        return <frame BackgroundColor3={Color3.fromRGB(37, 38, 43)
         }>
             <uicorner CornerRadius={new UDim(.1, 0)} />
-            <imagelabel Key={"PlayerLogo"} Image={`${Players.GetUserThumbnailAsync(this.props.player && this.props.player.UserId || 1, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size352x352)[0]}`} Size={UDim2.fromScale(.1, .9)} Position={UDim2.fromScale(.08, .5)} AnchorPoint={new Vector2(.5, .5)}>
+            <imagelabel Key={"PlayerLogo"} BackgroundTransparency={0} Image={`${Players.GetUserThumbnailAsync(this.props.player && this.props.player.UserId || 1, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size352x352)[0]}`} Size={UDim2.fromScale(.1, .9)} Position={UDim2.fromScale(.08, .5)} AnchorPoint={new Vector2(.5, .5)}>
                 <uicorner CornerRadius={new UDim(.1, 0)} />
             </imagelabel>
             <textlabel Key={"PlayerName"} Text={`${name} (@${dName})`} Size={UDim2.fromScale(.3, .35)} Position={UDim2.fromScale(.15, .05)} TextScaled={true} Font={Enum.Font.SourceSansBold} TextXAlignment={Enum.TextXAlignment.Left} TextWrap={false} BackgroundTransparency={1} TextColor3={Color3.fromRGB(255, 255, 255)} />
