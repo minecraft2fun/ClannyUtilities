@@ -1,5 +1,6 @@
-import Roact from "@rbxts/roact";
+import Roact, { createRef } from "@rbxts/roact";
 import { Players } from "@rbxts/services";
+import { BindTextInputs } from "client/BindTextInputs";
 import { Button } from "client/RoactComponents/Button";
 import { CheckBox } from "client/RoactComponents/CheckBox";
 import { PermTag } from "client/RoactComponents/PermTag";
@@ -15,9 +16,15 @@ interface state {
     elements: HomeScenePlayerData[]
 }
 
-//image sizes on input
-//push back text label overlap - auto size?
-//mod buttons
+export const ExpBind = new BindTextInputs()
+
+const expInput = <TextInput Key={"ExpInput"} text={"EXP"} image={"rbxassetid://15828619457"} size={UDim2.fromScale(.9, .08)}
+    layoutOrder={1000} imageSize={UDim2.fromScale(.15, 1)}
+    onLoad={(input) => {
+        input.intOnly()
+        ExpBind.add(input)
+    }}
+/>
 
 export class HomeScene extends Roact.Component<props, state>{
     constructor(props: props) {
@@ -28,6 +35,7 @@ export class HomeScene extends Roact.Component<props, state>{
         this.addPlayer({})
         this.addPlayer({ player: Players.LocalPlayer })
         this.addPlayer({})
+
     }
     private addPlayer(data: HomeScenePlayerData) {
         this.setState((original) => ({
@@ -66,7 +74,7 @@ export class HomeScene extends Roact.Component<props, state>{
                 <uilistlayout Padding={new UDim(.03)} SortOrder={"LayoutOrder"} HorizontalAlignment={"Center"} />
                 <frame Key={"Buffer"} Size={UDim2.fromScale(1, .001)} BackgroundTransparency={1} />
                 {current}
-                <TextInput Key={"ExpInput"} text={"EXP"} image={"rbxassetid://15828619457"} size={UDim2.fromScale(.9, .08)} layoutOrder={1000} imageSize={UDim2.fromScale(.3, 1)} />
+                {expInput}
                 <frame Key={"ButtonHolder"} Size={UDim2.fromScale(1, .08)} LayoutOrder={1001} BackgroundTransparency={1} >
                     <uilistlayout SortOrder={"LayoutOrder"} HorizontalAlignment={"Center"} FillDirection={"Horizontal"} HorizontalFlex={"SpaceEvenly"} />
                     <Button

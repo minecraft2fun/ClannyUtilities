@@ -1,6 +1,7 @@
 import Roact from "@rbxts/roact";
 import { TextInput } from "../RoactComponents/TextInput";
 import { NavigationButton } from "../RoactComponents/NavigationButton";
+import { ExpBind } from "./HomeScene";
 
 export class TopBar extends Roact.Component<{}, {}>{
     public render(): Roact.Element | undefined {
@@ -13,8 +14,12 @@ export class TopBar extends Roact.Component<{}, {}>{
                 <NavigationButton name={"Home"} default={true} xSize={.4} position={UDim2.fromScale(.2, .5)} />
                 <NavigationButton name={"Players"} xSize={.5} position={UDim2.fromScale(.7, .5)} />
             </frame>
-            <TextInput Key={"PlayerSearch"} text={"Search Username"} image={"rbxassetid://15828619341"} size={UDim2.fromScale(.25, .5)} layoutOrder={4} imageSize={UDim2.fromScale(.15, .8)} />
-            <TextInput Key={"ExpInput"} text={"EXP"} image={"rbxassetid://15828619457"} size={UDim2.fromScale(.09, .5)} layoutOrder={5} imageSize={UDim2.fromScale(.3, 1)} />
+            <TextInput Key={"PlayerSearch"} text={"Search Username"} image={"rbxassetid://15828619341"} size={UDim2.fromScale(.23, .5)} layoutOrder={4} imageSize={UDim2.fromScale(.15, .8)} />
+            <TextInput Key={"ExpInput"} text={"EXP"} image={"rbxassetid://15828619457"} size={UDim2.fromScale(.09, .5)} layoutOrder={5}
+                imageSize={UDim2.fromScale(.3, 1)} onLoad={(input) => {
+                    input.intOnly()
+                    ExpBind.add(input)
+                }} />
             <textbutton Key={"CloseButton"} Size={UDim2.fromScale(.03, .4)} LayoutOrder={6} Text={"X"} AutoButtonColor={false} BackgroundColor3={Color3.fromRGB(32, 44, 62)} TextColor3={Color3.fromRGB(193, 194, 197)} TextScaled={true}>
                 <uiscale Key={"Scale"} />
                 <uicorner CornerRadius={new UDim(.3, 0)} />
